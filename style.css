@@ -30,7 +30,7 @@ nav a {
     font-weight: bold;
 }
 nav a:hover {
-    text-decoration: underline;
+    text-decoration: underline;|
 }
 .grid {
     display: grid;
