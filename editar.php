@@ -6,7 +6,6 @@ $mensagem = "";
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
     
-    // Busca os dados atuais do prato
     $stmt = $conn->prepare("SELECT * FROM pratos WHERE id = ?");
     $stmt->bind_param("i", $id);
     $stmt->execute();
