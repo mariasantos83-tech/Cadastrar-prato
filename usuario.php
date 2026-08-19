@@ -4,7 +4,6 @@ include 'conexao.php';
 if (isset($_GET['usuario_id'])) {
     $usuario_id = $_GET['usuario_id'];
 
-    // Nome do usuário buscado
     $stmt_user = $conn->prepare("SELECT nome FROM usuarios WHERE id = ?");
     $stmt_user->bind_param("i", $usuario_id);
     $stmt_user->execute();
@@ -12,7 +11,6 @@ if (isset($_GET['usuario_id'])) {
     $usuario = $res_user->fetch_assoc();
     $stmt_user->close();
 
-    // Pratos do usuário
     $stmt_pratos = $conn->prepare("SELECT * FROM pratos WHERE usuario_id = ?");
     $stmt_pratos->bind_param("i", $usuario_id);
     $stmt_pratos->execute();
@@ -31,7 +29,7 @@ if (isset($_GET['usuario_id'])) {
 <body>
     <div class="container">
         <h1>Pratos cadastrados por: <?php echo $usuario['nome']; ?></h1>
-        <a href="index.php" class="btn-back">⬅️ Voltar para o início</a>
+        <a href="index.php" class="btn-back">Voltar para o início</a>
 
         <table>
             <thead>
